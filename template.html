@@ -1,0 +1,54 @@
+<!--<github.com/tohvelidev> wrote this file.-->
+<!--As long as you retain this notice you can do whatever you want with this stuff-->
+<!--If we meet some day, and you think this stuff is worth it, you can buy me a beer in return.-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link rel="icon" type="image/png" href="{YOUR BASE64 STRING HERE}">
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+
+    <script type='text/javascript'>
+        function resizeCanvas() {
+            var canvas = document.getElementById('canvas');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+
+        // Update size on window resize
+        window.addEventListener('resize', resizeCanvas);
+
+        var Module = {
+            canvas: document.getElementById('canvas')
+        };
+    </script>
+
+    <!--Emscripten will automatically inject your compiled .js application here.-->
+    {{{ SCRIPT }}}
+
+</body>
+
+</html>
+
